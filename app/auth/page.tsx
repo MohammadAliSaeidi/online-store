@@ -1,5 +1,7 @@
-const Auth = () => {
-    return <AuthForm />
-}
+import AuthCard from "../_features/auth/components/AuthCard";
 
-export default Auth
+const Auth = () => {
+	return <AuthCard />;
+};
+
+export default Auth;
