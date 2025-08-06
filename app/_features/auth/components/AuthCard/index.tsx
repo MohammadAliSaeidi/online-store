@@ -13,7 +13,7 @@ const AUTH_FORM_ID = "auth-form";
 
 export default function AuthCard() {
 	return (
-		<Card>
+		<Card className="w-sm">
 			<CardHeader>
 				<CardTitle>Login</CardTitle>
 				<CardDescription>Login to your account</CardDescription>
