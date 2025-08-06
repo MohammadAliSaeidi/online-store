@@ -20,13 +20,12 @@ export const useAuth = ({ onAuthenticated }: Props) => {
 				toast.error("Authentication failed please try again");
 			}
 		} catch (e) {
-			if (isAxiosError(e)) {
-				if (e.status === 401) {
-					toast.error("Username or password is incorrect");
-				}
-			} else {
-				toast.error("Authentication failed please try again");
+			if (isAxiosError(e) && e.status === 401) {
+				toast.error("Username or password is incorrect");
+				return;
 			}
+
+			toast.error("Authentication failed please try again");
 		}
 	};
 

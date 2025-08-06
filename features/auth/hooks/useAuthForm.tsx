@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { authFormSchema } from "../schema";
 import { AuthFormValues } from "../types/AuthFormValues";
-import { useAuth } from "./ueAuth";
+import { useAuth } from "./useAuth";
 
 type Props = {
 	onAuthenticated: (token: string) => void;
