@@ -1,0 +1,1 @@
+Using https://fakestoreapi.com as backend to implement online shop as my skills showcase
