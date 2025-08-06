@@ -1,7 +1,16 @@
-import AuthCard from "../_features/auth/components/AuthCard";
+"use client";
+
+import { useRouter } from "next/navigation";
+import AuthCard from "../../features/auth/components/AuthCard";
 
 const Auth = () => {
-	return <AuthCard />;
+	const { push } = useRouter();
+
+	const handleNavigateToHome = () => {
+		push("/");
+	};
+
+	return <AuthCard onAuthenticated={handleNavigateToHome} />;
 };
 
 export default Auth;

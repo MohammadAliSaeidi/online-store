@@ -14,8 +14,6 @@ export const useAuth = ({ onAuthenticated }: Props) => {
 		try {
 			const response = await mutateAsync(formData);
 
-			console.log(response);
-
 			if (response.status === 201) {
 				onAuthenticated(response.data.token);
 			} else {

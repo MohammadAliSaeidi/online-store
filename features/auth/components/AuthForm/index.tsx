@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -15,11 +13,14 @@ import useAuthForm from "../../hooks/useAuthForm";
 
 type Props = {
 	formId: string;
+	onAuthenticated: (token: string) => void;
+	onPendingChange: (pending: boolean) => void;
 };
 
-export default function AuthForm({ formId }: Props) {
+export default function AuthForm(props: Props) {
+	const { formId, onAuthenticated, onPendingChange } = props;
 	const { onSubmit, form, isPasswordVisible, setIsPasswordVisible } =
-		useAuthForm();
+		useAuthForm({ onAuthenticated, onPendingChange });
 
 	const { control } = form;
 
@@ -28,7 +29,7 @@ export default function AuthForm({ formId }: Props) {
 			<form
 				id={formId}
 				onSubmit={onSubmit}
-				className="flex flex-col gap-4"
+				className={"flex flex-col gap-4"}
 			>
 				<FormField
 					control={control}
