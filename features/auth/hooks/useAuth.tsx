@@ -14,13 +14,13 @@ export const useAuth = ({ onAuthenticated }: Props) => {
 		try {
 			const response = await mutateAsync(formData);
 
-			if (response.status === 201) {
+			if (response.status >= 200 && response.status <= 299) {
 				onAuthenticated(response.data.token);
 			} else {
 				toast.error("Authentication failed please try again");
 			}
 		} catch (e) {
-			if (isAxiosError(e) && e.status === 401) {
+			if (isAxiosError(e) && e.status === 400) {
 				toast.error("Username or password is incorrect");
 				return;
 			}
